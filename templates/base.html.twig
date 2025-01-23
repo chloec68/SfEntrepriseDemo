@@ -12,6 +12,14 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        
+        <nav>
+            <ul>
+                <li><a href="{{ path('app_employe') }}">Employés</a></li>
+                <li><a href="{{ path('app_entreprise') }}">Entreprises</a></li>
+            </ul>
+        </nav>
+        
+       {% block body %} {% endblock %}
     </body>
 </html>

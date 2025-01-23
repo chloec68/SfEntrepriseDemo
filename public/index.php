@@ -1,6 +1,6 @@
 <?php
 
-use App\Kernel;
+use App\Kernel; //permet d'accéder au "noyau de Symphony"
 
 require_once dirname(__DIR__).'/vendor/autoload_runtime.php';
 

@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %} 
+
+{% block title %}Détails d'une entreprise{% endblock %}
+
+{% block body %}
+    <h1>Détails de l'entreprise</h1>
+    <h2>Raison sociale : {{entreprise}} </h2>
+    <p>{{entreprise.adresse}} {{entreprise.cp}} {{entreprise.ville}}</p>
+    
+{% endblock %}
