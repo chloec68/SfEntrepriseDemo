@@ -75,4 +75,9 @@ final class EmployeController extends AbstractController
             'employe' => $employe
         ]);
     }
+
+    #[Route('/employe/{id}/delete', name: 'delete_employe')]
+    public function delete(Employe $employe){
+        
+    }
 }
