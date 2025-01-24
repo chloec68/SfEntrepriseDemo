@@ -9,7 +9,8 @@
 
         {% for entreprise in entreprises %}
         <a class="btn btn-warning" href=" {{ path('edit_entreprise', {'id':entreprise.id }) }}">Edit</a>
-        <a href="{{ path('display_entreprise', {'id':entreprise.id }) }}">{{entreprise}}</a>    
+        <a href="{{ path('display_entreprise', {'id':entreprise.id }) }}">{{entreprise}}</a>
+        <a href=" {{ path('delete_entreprise', {'id':entreprise.id}) }}" class="btn btn-danger">Supp</a><br>    
         <br>
         
         {% endfor %}
