@@ -30,7 +30,8 @@ class Employe
     #[ORM\JoinColumn(nullable: false)]
     private ?Entreprise $entreprise = null;
 
-    #[ORM\Column(length: 50, nullable: true)]
+    // #[ORM\Column(length: 50, nullable: true)]
+    #[Assert\NotBlank(allowNull: true)]
     private ?string $ville = null;
 
     public function getId(): ?int

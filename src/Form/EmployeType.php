@@ -37,6 +37,7 @@ class EmployeType extends AbstractType
                 
             ])
             ->add('ville',TextType::class, ['attr'=>[
+                'required'=> false,   // cohérence avec BDD
                 'class'=>'form-control'
             ]])
             ->add('entreprise', EntityType::class, [
