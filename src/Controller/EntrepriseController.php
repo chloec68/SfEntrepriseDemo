@@ -75,6 +75,14 @@ final class EntrepriseController extends AbstractController
             'edit' => $entreprise->getId() // si l'entreprise est déjà créée, un id est renvoyé (renvoie bool:true) / sinon bool:false
         ]);
     }
+
+    #[Route('/entreprise/{id}/delete', name: 'delete_entreprise')]
+    public function delete(Entreprise $entreprise,EntityManagerInterface $entityManager){
+        if($entreprise){
+            $entityManager->remove($entreprise);
+            $entityManager->flush();
+        }
+    }
    
     #[Route('/entreprise/{id}', name: 'display_entreprise')]
         public function displayInfo(Entreprise $entreprise):Response{
@@ -83,5 +91,6 @@ final class EntrepriseController extends AbstractController
             return $this->render('entreprise/displayEntreprise.html.twig', [
                 'entreprise'=> $entreprise
             ]);
-    }
+        }
+ 
 }
