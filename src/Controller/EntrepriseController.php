@@ -72,6 +72,7 @@ final class EntrepriseController extends AbstractController
 
         return $this->render('entreprise/new.html.twig', [
             'formNewEntreprise'=>$form,
+            'edit' => $entreprise->getId() // si l'entreprise est déjà créée, un id est renvoyé (renvoie bool:true) / sinon bool:false
         ]);
     }
    
