@@ -5,5 +5,22 @@
 {% block body %}
     <h1>Ajouter une entreprise</h1>
 
-     {{ form(formNewEntreprise) }}
+     {# {{ form(formNewEntreprise) }} #}
+
+     {{ form_start(formNewEntreprise) }}
+        {{ form_row(formNewEntreprise.raisonSociale) }}
+        {{ form_row(formNewEntreprise.dateCreation) }}
+     <div class="row">
+         <div class="col-sm">
+            {{ form_row(formNewEntreprise.adresse) }}
+         </div>
+         <div class="col-sm">
+            {{ form_row(formNewEntreprise.cp) }}
+         </div>
+         <div class="col-sm">{{ form_row(formNewEntreprise.ville) }}
+        </div>
+     </div>
+     {{ form_row(formNewEntreprise.valider) }}
+  {{ form_end(formNewEntreprise) }}
+
 {% endblock %}
