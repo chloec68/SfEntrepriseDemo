@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %} 
+
+{% block title %}Détails d'une entreprise{% endblock %}
+
+{% block body %}
+    <h1>Détails de l'entreprise</h1>
+    <h2>{{entreprise}} </h2>
+    <p>Adresse : {{entreprise.adresseComplete}} <br>
+    Date de création (convertie en string dans l'entité) : {{entreprise.dateCreationString}} <br>
+    Date création (convertie en string dans twig): {{entreprise.dateCreation | date("Y-m-d") }}</p>
+
+    <h3>Liste des salariés</h3>
+    {% if entreprise.employes | length > 0 %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Employe</th>
+                </tr>
+            </thead>
+            <tbody>
+        {% for employe in entreprise.employes %}
+            <tr><td><a href="{{ path('display_employe',{'id':employe.id}) }}">{{ employe }}</a></td></tr>
+        {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Aucun salarié dans cette entreprise</p>
+    {% endif %}
+{% endblock %}
+
+{# Dans Forum, on était obligé à chaque fois de créer une requête pour récupérer la collection d'une
+entité et de la récupérer dans le controller - ici grâce à la relation qui existe entre l'entité entreprise
+et l'entité employé, on peut accéder à la collection directement, sans créer de requête associée - voir entité Entreprise -> collection Employes
+qui est directement accessible #}

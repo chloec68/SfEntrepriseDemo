@@ -113,4 +113,18 @@ class Employe
 
         return $this;
     }
+
+    public function getAge(): ?string
+    {
+        $now = new \DateTime();
+        $interval = $this->dateNaissance->diff($now);
+        return $interval->format("%Y");
+    }
 }
+
+// lorsqu'on appelle une méthode native de PHP comme ici DateTime, on commence avec un 
+// anti slash, sinon Symfony l'interprete comme une entité existante et va aller 
+// chercher une entité ; 
+
+//-> format("Y") lorsqu'il s'agit d'un objet Date 
+// -> formation ("%Y") lorsqu'il s'agit d'un objet DateTime
