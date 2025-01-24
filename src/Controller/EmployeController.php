@@ -32,10 +32,13 @@ final class EmployeController extends AbstractController
     }
 
     #[Route('/employe/new', name: 'new_employe')]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    #[Route('/employe/{id}/edit', name: 'edit_employe')]
+    public function new_edit(Request $request, EntityManagerInterface $entityManager, ?Employe $employe = null): Response
     {
-        $employe = new Employe();
-
+        if(!$employe){
+            $employe = new Employe();
+        }
+        
         $form = $this->createForm(EmployeType::class, $employe);
 
         $form->handleRequest($request);
